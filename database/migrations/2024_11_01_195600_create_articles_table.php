@@ -17,7 +17,6 @@ public function up()
         $table->string('title');
         $table->string('author');
         $table->date('created_at');
-        $table->date('updated_at');
         $table->string('reading_time');
         $table->string('tag');
         $table->string('image_link');
