@@ -1,0 +1,99 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your API Title",
+        "description": "Description of your API",
+        "contact": {
+            "email": "support@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/articles": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Get all articles",
+                "description": "Returns a list of articles",
+                "operationId": "getArticles",
+                "responses": {
+                    "200": {
+                        "description": "A list of articles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Article"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Article": {
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "description": "Title of the article",
+                        "type": "string"
+                    },
+                    "author": {
+                        "description": "Author of the article",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Publication date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "readingTime": {
+                        "description": "Estimated reading time",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "Article tags",
+                        "type": "string"
+                    },
+                    "image": {
+                        "properties": {
+                            "link": {
+                                "description": "Link to the article image",
+                                "type": "string"
+                            },
+                            "alt": {
+                                "description": "Alternative text for the image",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "content": {
+                        "description": "Content of the article",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Articles",
+            "description": "Articles"
+        }
+    ]
+}
